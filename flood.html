@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Book Page</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+<style>
+body {
+    font-family: serif;
+    font-size: 12pt;
+    color: #333;
+}
+
+.page {
+    width: 450px;
+    height:600px;
+    margin-left:0px;
+    padding: 20px;
+    border: 1px solid #ccc;
+ background: linear-gradient(270deg, rgba(18,11,2,1) 0%, rgba(31,30,30,0.3697128509606967) 0.8%, rgba(247,246,239,0.016771674490108524) 4%);
+color:#0e0e0d;
+}
+
+.page2 {
+   width: 450px;
+    height:600px;
+    margin-left: 486px;
+    margin-top: -641.85px;
+
+    padding: 20px;
+    border: 1px solid #ccc;
+ background: linear-gradient(90deg, rgba(18,11,2,1) 0%, rgba(31,30,30,0.3697128509606967) 0.5%, rgba(247,246,239,0.016771674490108524) 4%);
+color:#0e0e0d;
+}
+
+
+.content {
+    text-align: left;
+    line-height: 1.4;
+    padding-left:25px;
+}
+h1{
+text-align:right;
+}
+
+.pn{
+text-align:center;
+}
+
+hr.style {
+padding: 0;
+border: none;
+height: 1px;
+background-image: -webkit-linear-gradient(left, rgba(0,0,0,0), rgba(0,0,0,0.75), rgba(0,0,0,0));
+background-image: -moz-linear-gradient(left, rgba(0,0,0,0), rgba(0,0,0,0.75), rgba(0,0,0,0));
+background-image: -ms-linear-gradient(left, rgba(0,0,0,0), rgba(0,0,0,0.75), rgba(0,0,0,0));
+background-image: -o-linear-gradient(left, rgba(0,0,0,0), rgba(0,0,0,0.75), rgba(0,0,0,0));
+color: #333;
+text-align: center;
+}
+
+</style>
+    <div class="page" onclick="goback()">
+<h1>Flooding Dynamics in Bangkok</h1>
+<p class="writer" align="right">Monte Kietpawpan<br><i>Policy Analyst, Senior Professional Level<br>Service Link Center of MNRE, Bangkok 10400, Thailand</i></p>
+<hr class="style">
+<div class="text">
+
+<p>
+This book projects the volume of water that is enough to flood Bangkok to a given flood height.
+</p>
+
+<b>Fraction of infrastructure area</b><br>
+<input oninput="flood()" id="F" type="number"placeholder="Fraction of infrastructure area"><br><br>
+
+<b>Height of infra</b><br>
+<input oninput="flood()" id="h" placeholder="Height of infra"><br><br>
+
+<b>Expected flood height</b><br>
+<input oninput="flood()" id="H" placeholder="Expected flood height"><br><br>
+
+<b>Canal width</b><br>
+<input oninput="flood()" id="Wc" placeholder="Canal width"><br><br>
+
+<b>Canal depth</b><br>
+<input oninput="flood()" id="Dc" placeholder="Canal depth"><br><br>
+
+<b>Fraction of water in canal</b><br>
+<input oninput="flood()" id="Vt" placeholder="Fraction of water in canal"><br><br>
+
+
+<script>
+ 
+function flood(){
+
+let F = document.getElementById("F").value; // Fraction of infrastructure area in the city
+
+let h = document.getElementById("h").value; // height of infra
+
+let a = 1568.7 * 10000000 * F; // area of infrastructures
+
+let H = document.getElementById("H").value; // Expected flood height
+
+let area = 1568.7 * 10000000; // Bangkok
+
+let Lc = 2604 * 1000; // Canals length (m)
+
+let Wc = document.getElementById("Wc").value; // canal width
+
+let Dc = document.getElementById("Dc").value; // canal depth
+
+let Vt = document.getElementById("Vt").value; // fraction of water volume alraedy in canal
+
+let Vc = Lc * Wc * Dc;
+
+let Vi = a * h; // infra volume
+
+let Vf = Vc * Vt;
+
+let Vw = (area * H) - Vi + Vf;  
+
+let Result = Vw.toLocaleString();
+
+document.getElementById("Vw").innerHTML = Result + " m<sup>3</sup>";
+
+var flow = document.getElementById("fr").value;
+var volume = flow * 60 * 60 * 24; // squared meter per day
+
+document.getElementById("V").innerHTML = volume.toLocaleString() + " m<sup>2</sup>/day.";
+var hq = volume/Vw;
+document.getElementById("hq").innerHTML = hq.toFixed(1);
+
+}
+
+</script>
+
+
+</div>
+</div>
+
+  <div class="page2" onclick="gonext()">
+        <div class="content">
+         
+<h1>Fact Sheet</h1>
+<hr class="style">
+
+<div class="text">
+
+<p>
+Water flows at 4,498 m<sup>3</sup>/s.</p>
+</div>
+
+<b>Water flow rate</b><br>
+<input oninput="flood()" id="fr" type="number"placeholder="Flow rate"><br><br>
+
+
+<b>Risk Water Volume:</b> <span id="Vw"></span><br>
+
+<b>Current Water Flow:</b> <span id="V"></span><br>
+<b>Hazard Quotient:</b> <span id="hq"></span>
+
+
+<p>
+<div class="pn">- i -</div>
+</div>
+</p>
+
+</body>
+</html>
