@@ -69,7 +69,7 @@ text-align: center;
 <div class="text">
 
 <p>
-This book projects the volume of water that is enough to flood Bangkok to a given flood height.
+This book was designed for assessing the risk of flooding in Bangkok to a given flood height (under development).
 </p>
 
 <b>Fraction of infrastructure area</b><br>
@@ -128,7 +128,7 @@ document.getElementById("Vw").innerHTML = Result + " m<sup>3</sup>";
 var flow = document.getElementById("fr").value;
 var volume = flow * 60 * 60 * 24; // squared meter per day
 
-document.getElementById("V").innerHTML = volume.toLocaleString() + " m<sup>2</sup>/day.";
+document.getElementById("V").innerHTML = volume.toLocaleString() + " m<sup>3</sup>/day.";
 var hq = volume/Vw;
 document.getElementById("hq").innerHTML = hq.toFixed(1);
 
