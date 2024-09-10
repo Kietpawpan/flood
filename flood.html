@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Book Page</title>
+    <title>Bangkok Flood</title>
     <link rel="stylesheet" href="style.css">
 </head>
 
@@ -63,45 +63,52 @@ text-align: center;
 
 </style>
     <div class="page" onclick="goback()">
-<h1>Flooding Dynamics in Bangkok</h1>
-<p class="writer" align="right">Monte Kietpawpan<br><i>Policy Analyst, Senior Professional Level<br>Service Link Center of MNRE, Bangkok 10400, Thailand</i></p>
+<h1>Flood Risk in Bangkok</h1>
+<p class="writer" align="right">Monte Kietpawpan<i><br><font size="-1">Senior Policy Analyst, MNRE Service Link Center, Bangkok 10400, Thailand</i></font></p>
 <hr class="style">
 <div class="text">
 
 <p>
-This book was designed for assessing the risk of flooding in Bangkok to a given flood height (under development).
+This book offers a tool for assessing flood risk in Bangkok.
 </p>
-
-<b>Fraction of infrastructure area</b><br>
-<input oninput="flood()" id="F" type="number"placeholder="Fraction of infrastructure area"><br><br>
-
-<b>Height of infra</b><br>
-<input oninput="flood()" id="h" placeholder="Height of infra"><br><br>
-
-<b>Expected flood height</b><br>
+<b>Expected flood height </b>(m)<br>
 <input oninput="flood()" id="H" placeholder="Expected flood height"><br><br>
 
-<b>Canal width</b><br>
+<b>Water flow rate </b>(m<sup>3</sup>/s)<br>
+<input oninput="flood()" id="fr" type="number"placeholder="Flow rate"><br><br>
+
+
+<b>Fraction of infrastructure area </b>(Dmnl)<br>
+<input oninput="flood()" id="F" type="number"placeholder="Fraction of infrastructure area"><br><br>
+
+<b>Height of infra </b>(m)<br>
+<input oninput="flood()" id="h" placeholder="Height of infra"><br><br>
+
+<b>Canal width </b>(m)<br>
 <input oninput="flood()" id="Wc" placeholder="Canal width"><br><br>
 
-<b>Canal depth</b><br>
+<b>Canal depth </b>(m)<br>
 <input oninput="flood()" id="Dc" placeholder="Canal depth"><br><br>
 
-<b>Fraction of water in canal</b><br>
-<input oninput="flood()" id="Vt" placeholder="Fraction of water in canal"><br><br>
+<b>Fraction of space in canal </b> (Dmnl)<br>
+<input oninput="flood()" id="Vt" placeholder="Fraction of space in canal"><br><br>
+
 
 
 <script>
  
 function flood(){
 
+let H = document.getElementById("H").value; // Expected flood height of x meters
+
 let F = document.getElementById("F").value; // Fraction of infrastructure area in the city
 
 let h = document.getElementById("h").value; // height of infra
 
-let a = 1568.7 * 10000000 * F; // area of infrastructures
+if(h>H){h=H;} // count only the infra height under water
+else{;}
 
-let H = document.getElementById("H").value; // Expected flood height
+let a = 1568.7 * 10000000 * F; // area of infrastructures
 
 let area = 1568.7 * 10000000; // Bangkok
 
@@ -117,20 +124,33 @@ let Vc = Lc * Wc * Dc;
 
 let Vi = a * h; // infra volume
 
-let Vf = Vc * Vt;
+let Vf = Vc * Vt; // canal volume * fraction of space in canal
 
-let Vw = (area * H) - Vi + Vf;  
+let Vw = (area * H) - Vi + Vf;  // water volume casing flood height of x meter
+
+var flow = document.getElementById("fr").value;
+
+var volume = flow * 60 * 60 * 24; // squared meter per day of actual water
+
+var hq = volume/Vw; // hazard quotient
 
 let Result = Vw.toLocaleString();
 
+
+
 document.getElementById("Vw").innerHTML = Result + " m<sup>3</sup>";
-
-var flow = document.getElementById("fr").value;
-var volume = flow * 60 * 60 * 24; // squared meter per day
-
 document.getElementById("V").innerHTML = volume.toLocaleString() + " m<sup>3</sup>/day.";
-var hq = volume/Vw;
 document.getElementById("hq").innerHTML = hq.toFixed(1);
+document.getElementById("head").innerHTML = "Discussion";
+
+if(hq<0.5){document.getElementById("hq").style.color="green";
+document.getElementById("dis").innerHTML = "Bangkok is <font color='green'><b>at negligible risk of flooding</b></font>. The actual water volume is less than what's needed to reach the <font color='green'><b>" + H +  " meters </b></font> flood height.";}
+
+else if(hq<1){document.getElementById("hq").style.color="yellow";
+document.getElementById("dis").innerHTML = "Bangkok is <font color='yellow'><b>at low risk of flooding</b></font>. The actual water volume is less than what's needed to reach the <font color='yellow'><b>" + H +  " meters </b></font>flood height.";}
+
+else if(hq>=1){document.getElementById("hq").style.color="red";
+document.getElementById("dis").innerHTML = "Bangkok is <font color='red'><b>at high risk of flooding</b></font>. The actual water volume exceeds what's needed to reach the <font color='red'><b>" + H +  " meters </b></font>flood height.";}
 
 }
 
@@ -143,29 +163,61 @@ document.getElementById("hq").innerHTML = hq.toFixed(1);
   <div class="page2" onclick="gonext()">
         <div class="content">
          
-<h1>Fact Sheet</h1>
-<hr class="style">
-
-<div class="text">
-
-<p>
-Water flows at 4,498 m<sup>3</sup>/s.</p>
+<h3>Results</h3>
+<div class="result">
+<ul>
+<li>Risk Water Volume: <span id="Vw"></span></li>
+<li>Current Water Flow:</b> <span id="V"></span></li>
+<li><span id="hqr">Hazard Quotient:</span></b> <span id="hq"></span></li>
 </div>
 
-<b>Water flow rate</b><br>
-<input oninput="flood()" id="fr" type="number"placeholder="Flow rate"><br><br>
+<h3 id="head">Note:</h3>
+<div class="result" id="dis"><ul><li>Bangkok area is 1568.7 km<sup>2</sup>.</li><li>The water flow rates may range from 700-10,000 m<sup>3</sup>/s.</li></ul></div>
 
+<h4>Reference</h4>
+<p class="ref">
+Kietpawpan, M. 2024. Flood Dynamics and Risk Assessment. Github Repository: <a href="https://github.com/Kietpawpan/flood
+">https://github.com/Kietpawpan/flood</a>
+</p>
+<br><br>
+<hr width="100px">
 
-<b>Risk Water Volume:</b> <span id="Vw"></span><br>
-
-<b>Current Water Flow:</b> <span id="V"></span><br>
-<b>Hazard Quotient:</b> <span id="hq"></span>
-
-
-<p>
-<div class="pn">- i -</div>
+<p class="pn">- 2 -</p>
 </div>
 </p>
+
+
+
+<style>
+.pn{
+  font-size:12px;
+  margin-top:10px;
+  text-align:center;
+  margin-top:90px;
+}
+
+a{
+  text-decoration:none;
+}
+
+a:hover{
+  color:blue;
+}
+.result{
+  background-color:lightgrey;
+  padding:5px;
+}
+#Vw, #V, #hq{
+  font-weight:bold;
+}
+.ref{
+  padding-left: 36px;
+  text-indent: -36px;
+  margin-top:-20px;
+  font-size:14px;
+}
+
+</style>
 
 </body>
 </html>
