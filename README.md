@@ -23,7 +23,7 @@ Thus, there is a smaller volume of flood water to casue the same flood height wh
 The hazard quotient is a useful metric for quantifying flood risk. Here's a breakdown of the concept:
 
 ### Hazard Quotient (HQ)
-__Formula:__ HQ = Actual Water Volume / Water Volume Causing Flood Height of X Meters
+__Formula:__ HQ = Actual Water Volume / Water Volume Causing Flood Height of x Meters
 
 __Interpretation:__
 - HQ < 1: The area is at low risk of flooding. The actual water volume is less than what's needed to reach the specified flood height.
