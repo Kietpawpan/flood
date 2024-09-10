@@ -106,15 +106,16 @@ function flood() {
   const canalWaterFraction = document.getElementById("Vt").value;
   const waterFlowRate = document.getElementById("fr").value;
 
-  // Only the infrastructure beneath foodwater is considered
-  if (infrastructureHeight>expectedFloodHeight){infrastructureHeight=expectedFloodHeight;}
 
-  // Calculate areas and volumes
+
+  // Calculate areas and volumes-Only the infrastructure beneath foodwater is considered
+  var infrastructureVolume = "";
   const bangkokArea = 1568.7 * 10000000;
   const infrastructureArea = bangkokArea * infrastructureAreaFraction;
+    if(infrastructureHeight<expectedFloodHeight){infrastructureVolume = infrastructureArea * infrastructureHeight;}
+    else{infrastructureVolume = infrastructureArea * expectedFloodHeight;}
   const canalLength = 2604 * 1000;
   const canalVolume = canalLength * canalWidth * canalDepth;
-  const infrastructureVolume = infrastructureArea * infrastructureHeight;
   const canalWaterVolume = canalVolume * canalWaterFraction;
   const waterVolume = (bangkokArea * expectedFloodHeight) - infrastructureVolume + canalWaterVolume;
 
