@@ -73,7 +73,7 @@ document.getElementById("dis").innerHTML = "Bangkok is <font color='red'><b>at h
 }
 
 ```
-Thus, there is a smaller volume of flood water to casue the same flood height when there is the infrastructure that replaces the water. 
+Therefore, a smaller volume of floodwater is needed to produce the same flood height in areas with infrastructure that can displace water.
 
 ## Risk Assessment
 The hazard quotient is a useful metric for quantifying flood risk. Here's a breakdown of the concept:
