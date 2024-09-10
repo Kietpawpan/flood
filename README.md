@@ -4,17 +4,11 @@ Bangkok remains vulnerable to flooding, and the risk is likely to increase in th
 This repository offers a [web application](https://kietpawpan.github.io/flood/flood.html) designed to evaluate flood risk in Bangkok under the worst-case scenario of seawater intrusion.
 
 ## Theoretical Formulation
-1. In rural areas, where the predominant land use is agriculture, flooding often manifests as a layer of water covering the land (__Fig.1__).
-
-|<img src="https://kietpawpan.github.io/flood/flood0.jpg" width="300" height="300">
-|:--:| 
-| *__Fig.1__ Rural flooding model* | 
-
-2. In urban areas, such as Bangkok, flooding often manifests as a sheet of water inundating both land and infrastructure. (__Fig.2__).         
+In urban areas, such as Bangkok, flooding often manifests as a sheet of water inundating both land and infrastructure:         
 
 |<img src="https://kietpawpan.github.io/flood/flood.jpg" width="300" height="300">
 |:--:| 
-| *__Fig.2__ Urban flooding model* |
+| *Urban flooding model* |
 
 The thickness of the water layer, known as flood height (H), is calculated by dividing the volume of floodwater (V) by the city's area (A). However, this calculation can be adjusted to account for the volume of infrastructure submerged beneath the floodwater (Vi), which can partially displace the water.
 
@@ -91,4 +85,4 @@ If a region has an HQ of 0.8 for a flood height of 2 meters, it suggests that th
 
 
 ## Credits
-Figures 1 and 2 are powered by Gemini.
+Figure was created with Gemini.
