@@ -17,7 +17,7 @@ let A = 5000 * 1000000; // squared meter
 let H = (V+Vi)/A;
 
 ```
-Thus, there is a smaller volume of flood water to casue the same flood height when there is infrastructure that replaces the water. 
+Thus, there is a smaller volume of flood water to casue the same flood height when there is the infrastructure that replaces the water. 
 
 ## Credits
 Image by Gemini: 
