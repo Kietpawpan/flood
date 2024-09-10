@@ -6,7 +6,7 @@ In rural areas, where there are mainly paddy fields, flooding is a layer of wate
 
 <img src="https://kietpawpan.github.io/flood/flood0.jpg" width="300" height="300">
 
-In urban areas, such as a city in a low-land area, flooding is a layer of water (large square) over the land and the infrastructure therein (small squared).         
+In urban areas, however, flooding is a layer of water (large square) over the land and the infrastructure therein (small squared).         
 <img src="https://kietpawpan.github.io/flood/flood.jpg" width="300" height="300">
 
 The thickness of the water layer is called flood height (H), which equals the volume of flood water (V) divided by the city area (A). However, the water has been partially replaced by the volume of infrastructure under flood water (Vi). Hence,
