@@ -2,7 +2,7 @@
 A web app for flood risk assessment
 
 ## Conceptual Model
-![model](https://kietpawpan.github.io/flood/flood.jpg|width=100)
+<img src="https://kietpawpan.github.io/flood/flood.jpg" width="100" height="100">
 
 
 ## Credits
