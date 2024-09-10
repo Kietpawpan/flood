@@ -4,11 +4,9 @@ A web app for assessing risk associated with flood dynamics in Bangkok
 ## Theoretical Formulation
 In rural areas, where there are mainly paddy fields, flooding is a layer of water above the land.
 
-<img src="https://kietpawpan.github.io/flood/flood0.jpg" width="300" height="300">
-
-| ![space-1.jpg](http://www.storywarren.com/wp-content/uploads/2016/09/space-1.jpg) | 
+| <img src="https://kietpawpan.github.io/flood/flood0.jpg" width="300" height="300">
 |:--:| 
-| *Space* |
+| *Fig.1 Flooding model* |
 
 In urban areas, however, flooding is a layer of water (large square) over the land and the infrastructure therein (small squared).         
 <img src="https://kietpawpan.github.io/flood/flood.jpg" width="300" height="300">
