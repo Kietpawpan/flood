@@ -56,8 +56,6 @@ var hq = volume/Vw; // hazard quotient
 
 let Result = Vw.toLocaleString();
 
-
-
 document.getElementById("Vw").innerHTML = Result + " m<sup>3</sup>";
 document.getElementById("V").innerHTML = volume.toLocaleString() + " m<sup>3</sup>/day.";
 document.getElementById("hq").innerHTML = hq.toFixed(1);
