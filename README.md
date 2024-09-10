@@ -8,7 +8,7 @@ A web app for assessing risk associated with flood dynamics in Bangkok
 |:--:| 
 | *__Fig.1__ Rural flooding model* | 
 
-2. In urban areas, like Bangkok, flooding is a layer of water (large square) over the land and the infrastructure therein (small squared) (__Fig.2__).         
+2. In urban areas, such as Bangkok, flooding often manifests as a sheet of water inundating both land and infrastructure. (__Fig.2__).         
 
 |<img src="https://kietpawpan.github.io/flood/flood.jpg" width="300" height="300">
 |:--:| 
