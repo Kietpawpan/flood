@@ -72,10 +72,10 @@ text-align: center;
 This book offers a tool for assessing flood risk in Bangkok.
 </p>
 <b>Expected flood height </b>(m)<br>
-<input oninput="flood()" id="H" placeholder="Expected flood height"><br><br>
+<input required oninput="flood()" id="H" placeholder="Expected flood height"><br><br>
 
 <b>Water flow rate </b>(m<sup>3</sup>/s)<br>
-<input oninput="flood()" id="fr" type="number"placeholder="Flow rate"><br><br>
+<input required oninput="flood()" id="fr" type="number"placeholder="Flow rate"><br><br>
 
 
 <b>Fraction of infrastructure area </b>(Dmnl)<br>
@@ -96,7 +96,6 @@ This book offers a tool for assessing flood risk in Bangkok.
 
 
 <script>
- 
 function flood() {
   // Get input values
   const expectedFloodHeight = document.getElementById("H").value;
@@ -106,6 +105,9 @@ function flood() {
   const canalDepth = document.getElementById("Dc").value;
   const canalWaterFraction = document.getElementById("Vt").value;
   const waterFlowRate = document.getElementById("fr").value;
+
+  // Only the infrastructure beneath foodwater is considered
+  if (infrastructureHeight>expectedFloodHeight){infrastructureHeight=expectedFloodHeight;}
 
   // Calculate areas and volumes
   const bangkokArea = 1568.7 * 10000000;
@@ -128,20 +130,19 @@ function flood() {
 
   // Determine flood risk
   if (hazardQuotient < 0.5) {
-    // Low risk
+    // Negligible risk
     document.getElementById("hq").style.color = "green";
-    document.getElementById("dis").innerHTML = "Bangkok is at low risk of flooding. The actual water volume is less than what's needed to reach the " + expectedFloodHeight + " meters flood height.";
+    document.getElementById("dis").innerHTML = "Bangkok is at negligible risk of flooding. The actual water volume is less than what's needed to reach the " + expectedFloodHeight + " meters flood height.";
   } else if (hazardQuotient < 1) {
-    // Moderate risk
+    // Low risk
     document.getElementById("hq").style.color = "yellow";
-    document.getElementById("dis").innerHTML = "Bangkok is at moderate risk of flooding. The actual water volume is less than what's needed to reach the " + expectedFloodHeight + " meters flood height.";
+    document.getElementById("dis").innerHTML = "Bangkok is at low risk of flooding. The actual water volume is less than what's needed to reach the " + expectedFloodHeight + " meters flood height.";
   } else {
     // High risk
     document.getElementById("hq").style.color = "red";
     document.getElementById("dis").innerHTML = "Bangkok is at high risk of flooding. The actual water volume exceeds what's needed to reach the " + expectedFloodHeight + " meters flood height.";
   }
 }
-
 </script>
 
 
