@@ -17,9 +17,62 @@ A web app for assessing risk associated with flood dynamics in Bangkok
 The thickness of the water layer is called flood height (H), which equals the volume of flood water (V) divided by the city area (A). However, the water can be partially replaced by the volume of infrastructure under flood water (Vi). Hence,
 
 ```
-let V = 4000 * 1000000; // cubic meter
-let A = 5000 * 1000000; // squared meter
-let H = (V+Vi)/A;
+function flood(){
+
+let H = document.getElementById("H").value; // Expected flood height of x meters
+
+let F = document.getElementById("F").value; // Fraction of infrastructure area in the city
+
+let h = document.getElementById("h").value; // height of infra
+
+if(h>H){h=H;} // count only the infra height under water
+else{;}
+
+let a = 1568.7 * 10000000 * F; // area of infrastructures
+
+let area = 1568.7 * 10000000; // Bangkok
+
+let Lc = 2604 * 1000; // Canals length (m)
+
+let Wc = document.getElementById("Wc").value; // canal width
+
+let Dc = document.getElementById("Dc").value; // canal depth
+
+let Vt = document.getElementById("Vt").value; // fraction of water volume alraedy in canal
+
+let Vc = Lc * Wc * Dc;
+
+let Vi = a * h; // infra volume
+
+let Vf = Vc * Vt; // canal volume * fraction of space in canal
+
+let Vw = (area * H) - Vi + Vf;  // water volume casing flood height of x meter
+
+var flow = document.getElementById("fr").value;
+
+var volume = flow * 60 * 60 * 24; // squared meter per day of actual water
+
+var hq = volume/Vw; // hazard quotient
+
+let Result = Vw.toLocaleString();
+
+
+
+document.getElementById("Vw").innerHTML = Result + " m<sup>3</sup>";
+document.getElementById("V").innerHTML = volume.toLocaleString() + " m<sup>3</sup>/day.";
+document.getElementById("hq").innerHTML = hq.toFixed(1);
+document.getElementById("head").innerHTML = "Discussion";
+
+if(hq<0.5){document.getElementById("hq").style.color="green";
+document.getElementById("dis").innerHTML = "Bangkok is <font color='green'><b>at negligible risk of flooding</b></font>. The actual water volume is less than what's needed to reach the <font color='green'><b>" + H +  " meters </b></font> flood height.";}
+
+else if(hq<1){document.getElementById("hq").style.color="yellow";
+document.getElementById("dis").innerHTML = "Bangkok is <font color='yellow'><b>at low risk of flooding</b></font>. The actual water volume is less than what's needed to reach the <font color='yellow'><b>" + H +  " meters </b></font>flood height.";}
+
+else if(hq>=1){document.getElementById("hq").style.color="red";
+document.getElementById("dis").innerHTML = "Bangkok is <font color='red'><b>at high risk of flooding</b></font>. The actual water volume exceeds what's needed to reach the <font color='red'><b>" + H +  " meters </b></font>flood height.";}
+
+}
 
 ```
 Thus, there is a smaller volume of flood water to casue the same flood height when there is the infrastructure that replaces the water. 
