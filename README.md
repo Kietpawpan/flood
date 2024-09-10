@@ -2,7 +2,7 @@
 A web app for assessing risk associated with flood dynamics in Bangkok
 
 ## Theoretical Formulation
-In rural areas, where there are mainly paddy fields, flooding can be viewed as a layer of water above the land.
+In rural areas, where there are mainly paddy fields, flooding is a layer of water above the land.
 
 <img src="https://kietpawpan.github.io/flood/flood0.jpg" width="300" height="300">
 
