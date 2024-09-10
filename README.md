@@ -19,6 +19,11 @@ let H = (V+Vi)/A;
 ```
 Thus, there is a smaller volume of flood water to casue the same flood height when there is the infrastructure that replaces the water. 
 
+# Risk Assessment
+Flood risk is represented by hazard quotient: actual water volume/water volume that can cause flood height of x meters.
+
+
+
 ## Credits
 Image by Gemini: 
 - https://lh3.googleusercontent.com/gg/ACM6BIvx4gTOyCjSHr-Z4-vxKMiXyebZf1YFJd_M9927JYjz7ZTXN1hAUqCY-nQ28x0TQqQs2nDT0LXo3qQwvUj5bfzZgQvNtlDitkkEEQirbPUmNHlhml1Vf4ZSIHUdFn9EqkTywhpLTi116AFGZo7rL-GRQwRqLT9n8IAc6TBR8rXmX0fd9Ks
