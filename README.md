@@ -96,4 +96,4 @@ If a region has an HQ of 0.8 for a flood height of 2 meters, it suggests that th
 
 
 ## Credits
-Figures 1 and 2 are powered by Gemini: 
+Figures 1 and 2 are powered by Gemini.
