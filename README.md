@@ -2,7 +2,7 @@
 A web app for assessing risk associated with flood dynamics in Bangkok
 
 ## Theoretical Formulation
-1. In rural areas, where the land use are mainly agriculture, flooding is a layer of water above the land (__Fig.1__).
+1. In rural areas, where the predominant land use is agriculture, flooding often manifests as a layer of water covering the land (__Fig.1__).
 
 |<img src="https://kietpawpan.github.io/flood/flood0.jpg" width="300" height="300">
 |:--:| 
