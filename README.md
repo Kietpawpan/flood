@@ -2,7 +2,7 @@
 A web app for flood risk assessment
 
 ## Conceptual Model
-Assume that there is a city in a low-land area (large square) where water is flooding over the land and the infrastructure (small squared) in the city.         
+Assume that a city in a low-land area (large square) where water is flooding over its infrastructure (small squared).         
 <img src="https://kietpawpan.github.io/flood/flood.jpg" width="300" height="300">
 
 
