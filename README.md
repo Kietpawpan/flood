@@ -2,13 +2,13 @@
 A web app for assessing risk associated with flood dynamics in Bangkok
 
 ## Theoretical Formulation
-In rural areas, where the land use are mainly agriculture, flooding is a layer of water above the land (__Fig.1__).
+1. In rural areas, where the land use are mainly agriculture, flooding is a layer of water above the land (__Fig.1__).
 
 |<img src="https://kietpawpan.github.io/flood/flood0.jpg" width="300" height="300">
 |:--:| 
 | *__Fig.1__ Flooding model* | 
 
-In urban areas, however, flooding is a layer of water (large square) over the land and the infrastructure therein (small squared).         
+2. In urban areas, like Bangkok, flooding is a layer of water (large square) over the land and the infrastructure therein (small squared).         
 <img src="https://kietpawpan.github.io/flood/flood.jpg" width="300" height="300">
 
 The thickness of the water layer is called flood height (H), which equals the volume of flood water (V) divided by the city area (A). However, the water has been partially replaced by the volume of infrastructure under flood water (Vi). Hence,
