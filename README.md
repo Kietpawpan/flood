@@ -3,6 +3,7 @@ A web app for flood risk assessment
 
 ## Conceptual Model
 Flooding is seasonal existence of water layer above the land for a while.
+
 <img src="https://kietpawpan.github.io/flood/flood0.jpg" width="300" height="300">
 
 Assume that a city in a low-land area (large square) where water is flooding over its infrastructure (small squared).         
