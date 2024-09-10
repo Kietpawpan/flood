@@ -77,9 +77,9 @@ The hazard quotient is a useful metric for quantifying flood risk. Here's a brea
 __Formula:__ HQ = Actual Water Volume / Water Volume Causing Flood Height of x Meters
 
 __Interpretation:__
-- HQ < 1: The area is at low risk of flooding. The actual water volume is less than what's needed to reach the specified flood height.
-- HQ = 1: The area is at moderate risk of flooding. The actual water volume is equal to what's needed to reach the specified flood height.
-- HQ > 1: The area is at high risk of flooding. The actual water volume exceeds what's needed to reach the specified flood height.
+- HQ < 0.5: The area is at low risk of flooding. The actual water volume is less than what's needed to reach the specified flood height.
+- 0.5 < HQ < 1: The area is at moderate risk of flooding. The actual water volume is equal to what's needed to reach the specified flood height.
+- HQ >= 1: The area is at high risk of flooding. The actual water volume exceeds what's needed to reach the specified flood height.
 
 __Key Considerations__
 - x Meters: The chosen flood height is crucial. It should be based on historical data, local infrastructure, and the community's vulnerability to flooding.
