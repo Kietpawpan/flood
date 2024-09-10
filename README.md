@@ -1,5 +1,5 @@
 # Flood Dynamics and Risk Assessment
-A web app for assessing risk associated with flood dynamics in Bangkok
+A [web application](https://kietpawpan.github.io/flood/flood.html) for assessing risk associated with flood dynamics in Bangkok
 
 ## Theoretical Formulation
 1. In rural areas, where the predominant land use is agriculture, flooding often manifests as a layer of water covering the land (__Fig.1__).
