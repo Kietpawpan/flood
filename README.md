@@ -5,7 +5,7 @@ A web app for flood risk assessment
 Assume that a city in a low-land area (large square) where water is flooding over its infrastructure (small squared).         
 <img src="https://kietpawpan.github.io/flood/flood.jpg" width="300" height="300">
 
-The thickness of the water layer is called flood height (H), which equals the volume of flood water (V) divided by the city area (A). However, water has been replaced by the volume of infrastructure under flood water (Vi). Hence,
+The thickness of the water layer is called flood height (H), which equals the volume of flood water (V) divided by the city area (A). However, the water has been partially replaced by the volume of infrastructure under flood water (Vi). Hence,
 
 ```
 let V = 4000 * 1000000; // cubic meter
