@@ -1,5 +1,5 @@
-# Bangkok Flood Dynamics and Risk Assessment
-A web app for flood risk assessment
+# Flood Dynamics and Risk Assessment
+A web app for assessing risk associated with flood dynamics in Bangkok
 
 ## Conceptual Model
 In rural areas, where there are mainly paddy fields, flooding can be viewed as a layer of water above the land.
