@@ -16,7 +16,9 @@
 |:--:| 
 | *__Fig.2__ Urban flooding model* |
 
-The thickness of the water layer, known as flood height (H), is calculated by dividing the volume of floodwater (V) by the city's area (A). However, this calculation can be adjusted to account for the volume of infrastructure submerged beneath the floodwater (Vi), which can partially displace the water:
+The thickness of the water layer, known as flood height (H), is calculated by dividing the volume of floodwater (V) by the city's area (A). However, this calculation can be adjusted to account for the volume of infrastructure submerged beneath the floodwater (Vi), which can partially displace the water.
+
+Below is the JavaScript code for evaluating flood risk in Bangkok based on a specified critical flood height.
 
 ```
 function flood(){
