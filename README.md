@@ -52,11 +52,11 @@ function flood() {
 
   // Determine flood risk
   if (hazardQuotient < 0.5) {
-    // Negligible risk
+    // Low risk
     document.getElementById("hq").style.color = "green";
     document.getElementById("dis").innerHTML = "Bangkok is at low risk of flooding. The actual water volume is less than what's needed to reach the " + expectedFloodHeight + " meters flood height.";
   } else if (hazardQuotient < 1) {
-    // Low risk
+    // Moderate risk
     document.getElementById("hq").style.color = "yellow";
     document.getElementById("dis").innerHTML = "Bangkok is at moderate risk of flooding. The actual water volume is less than what's needed to reach the " + expectedFloodHeight + " meters flood height.";
   } else {
