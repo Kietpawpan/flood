@@ -65,6 +65,9 @@ function flood() {
 }
 ```
 Therefore, a smaller volume of floodwater is needed to produce the same flood height in areas with infrastructure that can displace water.
+## Variables and Parameters
+1. __Critical flood height__ (H) is the flood level above which pedestrians or drivers cannot escape safely.
+2. Water flow rate (Q) is the quantity of water flowing into and off the city.
 
 ## Risk Assessment
 The hazard quotient is a useful metric for quantifying flood risk. Here's a breakdown of the concept:
