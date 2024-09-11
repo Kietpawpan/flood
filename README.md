@@ -118,8 +118,8 @@ If a region has an HQ of 0.8 for a flood height of 2 meters, it suggests that th
 >
 > By using this application, you acknowledge and agree to the terms of this disclaimer.
 
-## Reference
-[^1]: Image by Gemini.
-[^2]: Wikipedia. 2024. Bangkok. https://en.wikipedia.org/wiki/Bangkok
-[^3]: Bangkok Drainage and Sewerage Departemment. 2024. Flood Prevention Plan B.E. 2567 (in Thai). p. 2-9. https://dds.bangkok.go.th/public_content/files/001/0008491_1.pdf
+> ## Reference
+> [^1]: Image by Gemini.
+> [^2]: Wikipedia. 2024. Bangkok. https://en.wikipedia.org/wiki/Bangkok
+> [^3]: Bangkok Drainage and Sewerage Departemment. 2024. Flood Prevention Plan B.E. 2567 (in Thai). p. 2-9. https://dds.bangkok.go.th/public_content/files/001/0008491_1.pdf
 
