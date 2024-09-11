@@ -17,7 +17,7 @@ Below is the JavaScript code for evaluating flood risk in Bangkok based on a spe
 ```
 function flood() {
   // Get input values
-  const expectedFloodHeight = document.getElementById("H").value;
+  const criticalFloodHeight = document.getElementById("H").value;
   const infrastructureAreaFraction = document.getElementById("F").value;
   const infrastructureHeight = document.getElementById("h").value;
   const canalWidth = document.getElementById("Wc").value;
@@ -32,24 +32,24 @@ function flood() {
   var infrastructureVolume = "";
   const bangkokArea = 1568.7 * 10000000;
   const infrastructureArea = bangkokArea * infrastructureAreaFraction;
-    if(infrastructureHeight<expectedFloodHeight){infrastructureVolume = infrastructureArea * infrastructureHeight;}
-    else{infrastructureVolume = infrastructureArea * expectedFloodHeight;}
+    if(infrastructureHeight<criticalFloodHeight){infrastructureVolume = infrastructureArea * infrastructureHeight;}
+    else{infrastructureVolume = infrastructureArea * criticalFloodHeight;}
   const canalLength = 2604 * 1000;
   const canalVolume = canalLength * canalWidth * canalDepth;
   const canalWaterVolume = canalVolume * canalWaterFraction;
-  const waterVolume = (bangkokArea * expectedFloodHeight) - infrastructureVolume + canalWaterVolume;
+  const actualWaterVolume = (bangkokArea * criticalFloodHeight) - infrastructureVolume + canalWaterVolume;
 
   // Calculate hazard quotient
   var dailyWaterVolume = "";
     if (waterFlowRate < 2198.12){dailyWaterVolume = 0;}
     else{dailyWaterVolume = (waterFlowRate - 2700.06) * 60 * 60 * 24;}
-  var hazardQuotient = (dailyWaterVolume * duration) / waterVolume;
+  var hazardQuotient = (dailyWaterVolume * duration) / actualWaterVolume;
   var waterVolumePerDay = dailyWaterVolume / (duration*60*60*24);
   var DailyFloodWater = waterVolumePerDay.toLocaleString();
   document.getElementById("flow3day").innerHTML = DailyFloodWater + " m/s for " + duration + " consecutive days.";
 
   // Display results
-  document.getElementById("Vw").innerHTML = waterVolume.toLocaleString() + " m<sup>3</sup>";
+  document.getElementById("Vw").innerHTML = actualWaterVolume.toLocaleString() + " m<sup>3</sup>";
   document.getElementById("V").innerHTML = dailyWaterVolume.toLocaleString() + " m<sup>3</sup>/day.";
   document.getElementById("hq").innerHTML = hazardQuotient.toFixed(1);
   document.getElementById("head").innerHTML = "Discussion";
@@ -59,17 +59,18 @@ function flood() {
   if (hazardQuotient < 0.5) {
     // Low risk
     document.getElementById("hq").style.color = "green";
-    document.getElementById("dis").innerHTML = "Bangkok is at low risk of flooding. The actual water volume is less than what's needed to reach the " + expectedFloodHeight + " meters flood height.";
+    document.getElementById("dis").innerHTML = "Bangkok is at low risk of flooding. The actual water volume is less than what's needed to reach the " + criticalFloodHeight + " meters flood height.";
   } else if (hazardQuotient < 1) {
     // Moderate risk
     document.getElementById("hq").style.color = "yellow";
-    document.getElementById("dis").innerHTML = "Bangkok is at moderate risk of flooding. The actual water volume is less than what's needed to reach the " + expectedFloodHeight + " meters flood height.";
+    document.getElementById("dis").innerHTML = "Bangkok is at moderate risk of flooding. The actual water volume is less than what's needed to reach the " + criticalFloodHeight + " meters flood height.";
   } else {
     // High risk
     document.getElementById("hq").style.color = "red";
-    document.getElementById("dis").innerHTML = "Bangkok is at high risk of flooding. The actual water volume exceeds what's needed to reach the " + expectedFloodHeight + " meters flood height.";
+    document.getElementById("dis").innerHTML = "Bangkok is at high risk of flooding. The actual water volume exceeds what's needed to reach the " + criticalFloodHeight + " meters flood height.";
   }
 }
+
 ```
 Therefore, a smaller volume of floodwater is needed to produce the same flood height in areas with infrastructure that can displace water.
 ## Variables
