@@ -66,15 +66,6 @@ function flood() {
 ```
 Therefore, a smaller volume of floodwater is needed to produce the same flood height in areas with infrastructure that can displace water.
 ## Variables and Parameters
-1. __Critical flood height__ (H) is the flood level above which pedestrians or drivers cannot escape safely.
-2. __Overflow duration__ is the times since the flood water is greater than the water draining rate (consecutive days).
-3. __Water inflow rate__ (Q) is the quantity of water flowing into the city (m<sup>3</sup>/s.
-4. __Fraction of infrastructure area__ is the fraction of the infrastructure area in the city (Dmnl).
-5. __Height of infra__ is the height of infrastructure under the flood water (m).
-6. __Canal width__ is the width of the canal draining flood water from the city to the sea (m), which is 2604 km in length.
-7. __Canal depth__ is the depth of the canal draining flood water from the city to the sea (m). 
-8. __Actutal water volume__ is the mass of flood water, which equal inflow - outflow (m<sup>3</sup>. If the inflow is less than the outflow, then the actual water volume is zero.
-9. __Fraction of space in canal__ is the fraction of empty area in the canal (Dmnl).
 
 1. __Critical Flood Height:__ The maximum water level at which pedestrian or vehicular access becomes hazardous or impossible due to flooding.
 2. __Overflow Duration:__ The consecutive number of days during which the flood water level exceeds the capacity of the drainage system.
