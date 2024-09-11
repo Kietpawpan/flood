@@ -76,6 +76,16 @@ Therefore, a smaller volume of floodwater is needed to produce the same flood he
 8. __Actutal water volume__ is the mass of flood water, which equal inflow - outflow (m<sup>3</sup>. If the inflow is less than the outflow, then the actual water volume is zero.
 9. __Fraction of space in canal__ is the fraction of empty area in the canal (Dmnl).
 
+1. __Critical Flood Height:__ The maximum water level at which pedestrian or vehicular access becomes hazardous or impossible due to flooding.
+2. __Overflow Duration:__ The consecutive number of days during which the flood water level exceeds the capacity of the drainage system.
+3. __Water Inflow Rate:__ The volumetric flow rate of water entering the city or region, measured in cubic meters per second (m³/s).
+4. __Infrastructure Area Fraction:__ The ratio of the total area occupied by infrastructure (<i>e.g.</i>, buildings, roads) to the total area of the city or region.
+5. __Infrastructure Height:__ The height of infrastructure elements (<i>e.g.</i>, buildings) that are submerged during a flood.
+6. __Canal Width:__ The width of the canal used to drain flood water from the city to the sea, measured in meters (m).
+7. __Canal Depth:__ The depth of the canal used to drain flood water from the city to the sea, measured in meters (m).
+8. __Actual Water Volume:__ The net volume of flood water in the city or region, calculated as the difference between the inflow and outflow rates over time. If the outflow rate exceeds the inflow rate, the actual water volume is zero.
+9. __Canal Space Fraction:__ The ratio of the empty volume within the canal to the total volume of the canal.
+    
 ## Risk Assessment
 The hazard quotient is a useful metric for quantifying flood risk. Here's a breakdown of the concept:
 
