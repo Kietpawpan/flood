@@ -78,8 +78,8 @@ Therefore, a smaller volume of floodwater is needed to produce the same flood he
 9. __Canal Space Fraction:__ The ratio of the empty volume within the canal to the total volume of the canal.
 
 ## Parameters Used
-1. Bangkok area is km<sup>2</sup>
-2. The capacity of the drainage system in Bangkok is m<sup>3</sup>/s.
+1. Bangkok area is 1,568.7 km<sup>2</sup>
+2. The capacity of the drainage system in Bangkok is 2,198.12 m<sup>3</sup>/s.
    
 ## Risk Assessment
 The hazard quotient is a useful metric for quantifying flood risk. Here's a breakdown of the concept:
