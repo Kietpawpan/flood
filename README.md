@@ -24,6 +24,7 @@ function flood() {
   const canalDepth = document.getElementById("Dc").value;
   const canalWaterFraction = document.getElementById("Vt").value;
   const waterFlowRate = document.getElementById("fr").value;
+  const duration = document.getElementById("dur").value;
 
 
 
@@ -39,8 +40,13 @@ function flood() {
   const waterVolume = (bangkokArea * expectedFloodHeight) - infrastructureVolume + canalWaterVolume;
 
   // Calculate hazard quotient
-  const dailyWaterVolume = waterFlowRate * 60 * 60 * 24;
-  const hazardQuotient = dailyWaterVolume / waterVolume;
+  var dailyWaterVolume = "";
+    if (waterFlowRate < 2198.12){dailyWaterVolume = 0;}
+    else{dailyWaterVolume = (waterFlowRate - 2700.06) * 60 * 60 * 24;}
+  var hazardQuotient = (dailyWaterVolume * duration) / waterVolume;
+  var waterVolumePerDay = dailyWaterVolume / (duration*60*60*24);
+  var DailyFloodWater = waterVolumePerDay.toLocaleString();
+  document.getElementById("flow3day").innerHTML = DailyFloodWater + " m/s for " + duration + " consecutive days.";
 
   // Display results
   document.getElementById("Vw").innerHTML = waterVolume.toLocaleString() + " m<sup>3</sup>";
@@ -48,15 +54,16 @@ function flood() {
   document.getElementById("hq").innerHTML = hazardQuotient.toFixed(1);
   document.getElementById("head").innerHTML = "Discussion";
 
+
   // Determine flood risk
   if (hazardQuotient < 0.5) {
-    // Negligible risk
-    document.getElementById("hq").style.color = "green";
-    document.getElementById("dis").innerHTML = "Bangkok is at negligible risk of flooding. The actual water volume is less than what's needed to reach the " + expectedFloodHeight + " meters flood height.";
-  } else if (hazardQuotient < 1) {
     // Low risk
-    document.getElementById("hq").style.color = "yellow";
+    document.getElementById("hq").style.color = "green";
     document.getElementById("dis").innerHTML = "Bangkok is at low risk of flooding. The actual water volume is less than what's needed to reach the " + expectedFloodHeight + " meters flood height.";
+  } else if (hazardQuotient < 1) {
+    // Moderate risk
+    document.getElementById("hq").style.color = "yellow";
+    document.getElementById("dis").innerHTML = "Bangkok is at moderate risk of flooding. The actual water volume is less than what's needed to reach the " + expectedFloodHeight + " meters flood height.";
   } else {
     // High risk
     document.getElementById("hq").style.color = "red";
