@@ -62,19 +62,23 @@ text-align: center;
 }
 
 </style>
-    <div class="page" onclick="goback()">
+
+<div class="page" onclick="goback()">
+
 <h1>Flood Risk in Bangkok</h1>
+
 <p class="writer" align="right">Monte Kietpawpan<i><br><font size="-1">Senior Policy Analyst, MNRE Service Link Center, Bangkok 10400, Thailand</i></font></p>
 <hr class="style">
+
 <div class="text">
 
-<p>
-This book offers a tool for assessing flood risk in Bangkok.
-</p>
-<b>Expected flood height </b>(m)<br>
+<b>Critical flood height </b>(m)<br>
 <input required oninput="flood()" id="H" placeholder="Expected flood height"><br><br>
 
-<b>Water flow rate </b>(m<sup>3</sup>/s)<br>
+<b>Overflow duration (days)<br>
+<input required oninput="flood()" id="dur" type="number"placeholder="Duration"><br><br>
+
+<b>Water inflow rate </b>(m<sup>3</sup>/s)<br>
 <input required oninput="flood()" id="fr" type="number"placeholder="Flow rate"><br><br>
 
 
@@ -105,6 +109,7 @@ function flood() {
   const canalDepth = document.getElementById("Dc").value;
   const canalWaterFraction = document.getElementById("Vt").value;
   const waterFlowRate = document.getElementById("fr").value;
+  const duration = document.getElementById("dur").value;
 
 
 
@@ -120,14 +125,20 @@ function flood() {
   const waterVolume = (bangkokArea * expectedFloodHeight) - infrastructureVolume + canalWaterVolume;
 
   // Calculate hazard quotient
-  const dailyWaterVolume = waterFlowRate * 60 * 60 * 24;
-  const hazardQuotient = dailyWaterVolume / waterVolume;
+  var dailyWaterVolume = "";
+    if (waterFlowRate < 2198.12){dailyWaterVolume = 0;}
+    else{dailyWaterVolume = (waterFlowRate - 2198.12) * 60 * 60 * 24;}
+  var hazardQuotient = (dailyWaterVolume * duration) / waterVolume;
+  var waterVolumePerDay = dailyWaterVolume / (duration*60*60*24);
+  var DailyFloodWater = waterVolumePerDay.toLocaleString();
+  document.getElementById("flow3day").innerHTML = DailyFloodWater + " m/s for " + duration + " consecutive days.";
 
   // Display results
   document.getElementById("Vw").innerHTML = waterVolume.toLocaleString() + " m<sup>3</sup>";
   document.getElementById("V").innerHTML = dailyWaterVolume.toLocaleString() + " m<sup>3</sup>/day.";
   document.getElementById("hq").innerHTML = hazardQuotient.toFixed(1);
   document.getElementById("head").innerHTML = "Discussion";
+
 
   // Determine flood risk
   if (hazardQuotient < 0.5) {
@@ -159,6 +170,8 @@ function flood() {
 <li>Risk Water Volume: <span id="Vw"></span></li>
 <li>Current Water Flow:</b> <span id="V"></span></li>
 <li><span id="hqr">Hazard Quotient:</span></b> <span id="hq"></span></li>
+<li>Overflow rate: <span id="flow3day"></span>
+
 </div>
 
 <h3 id="head">Note:</h3>
