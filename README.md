@@ -67,9 +67,9 @@ function flood() {
 Therefore, a smaller volume of floodwater is needed to produce the same flood height in areas with infrastructure that can displace water.
 ## Variables and Parameters
 1. __Critical flood height__ (H) is the flood level above which pedestrians or drivers cannot escape safely.
-2. Water flow rate (Q) is the quantity of water flowing into the city (m<sup>3</sup>/s.
-3. Duration is the times since the flood water is greater than the water draining rate (consecutive days).
-4. Actutal water volume is the mass of flood water, which equal inflow - outflow (m<sup>3</sup>. If the inflow is less than the outflow, then the actual water volume is zero.  
+2. __Water flow rate__ (Q) is the quantity of water flowing into the city (m<sup>3</sup>/s.
+3. __Duration__ is the times since the flood water is greater than the water draining rate (consecutive days).
+4. __Actutal water volume__ is the mass of flood water, which equal inflow - outflow (m<sup>3</sup>. If the inflow is less than the outflow, then the actual water volume is zero.  
 
 ## Risk Assessment
 The hazard quotient is a useful metric for quantifying flood risk. Here's a breakdown of the concept:
