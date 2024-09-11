@@ -15,7 +15,7 @@ body {
 
 .page {
     width: 450px;
-    height:600px;
+    height:650px;
     margin-left:0px;
     padding: 20px;
     border: 1px solid #ccc;
@@ -25,9 +25,9 @@ color:#0e0e0d;
 
 .page2 {
    width: 450px;
-    height:600px;
+    height:650px;
     margin-left: 486px;
-    margin-top: -641.85px;
+    margin-top: -691.85px;
 
     padding: 20px;
     border: 1px solid #ccc;
@@ -71,30 +71,32 @@ text-align: center;
 <hr class="style">
 
 <div class="text">
-
-<b>Critical flood height </b>(m)<br>
+<p>
+This book provides a web-based tool for assessing flood risk in Bangkok.
+</p>
+<b>Critical Flood Height </b>(m)<br>
 <input required oninput="flood()" id="H" placeholder="Expected flood height"><br><br>
 
-<b>Overflow duration (days)<br>
+<b>Overflow Duration </b>(days)<br>
 <input required oninput="flood()" id="dur" type="number"placeholder="Duration"><br><br>
 
-<b>Water inflow rate </b>(m<sup>3</sup>/s)<br>
+<b>Water Inflow Rate </b>(m<sup>3</sup>/s)<br>
 <input required oninput="flood()" id="fr" type="number"placeholder="Flow rate"><br><br>
 
 
-<b>Fraction of infrastructure area </b>(Dmnl)<br>
+<b>Infrastructure Area Fraction</b> (Dmnl)<br>
 <input oninput="flood()" id="F" type="number"placeholder="Fraction of infrastructure area"><br><br>
 
-<b>Height of infra </b>(m)<br>
+<b>Infrastructure Height</b>(m)<br>
 <input oninput="flood()" id="h" placeholder="Height of infra"><br><br>
 
-<b>Canal width </b>(m)<br>
+<b>Canal Width </b>(m)<br>
 <input oninput="flood()" id="Wc" placeholder="Canal width"><br><br>
 
-<b>Canal depth </b>(m)<br>
+<b>Canal Depth </b>(m)<br>
 <input oninput="flood()" id="Dc" placeholder="Canal depth"><br><br>
 
-<b>Fraction of space in canal </b> (Dmnl)<br>
+<b>Canal Space Fraction</b> (Dmnl)<br>
 <input oninput="flood()" id="Vt" placeholder="Fraction of space in canal"><br><br>
 
 
@@ -102,7 +104,7 @@ text-align: center;
 <script>
 function flood() {
   // Get input values
-  const expectedFloodHeight = document.getElementById("H").value;
+  const criticalFloodHeight = document.getElementById("H").value;
   const infrastructureAreaFraction = document.getElementById("F").value;
   const infrastructureHeight = document.getElementById("h").value;
   const canalWidth = document.getElementById("Wc").value;
@@ -117,24 +119,24 @@ function flood() {
   var infrastructureVolume = "";
   const bangkokArea = 1568.7 * 10000000;
   const infrastructureArea = bangkokArea * infrastructureAreaFraction;
-    if(infrastructureHeight<expectedFloodHeight){infrastructureVolume = infrastructureArea * infrastructureHeight;}
-    else{infrastructureVolume = infrastructureArea * expectedFloodHeight;}
+    if(infrastructureHeight<criticalFloodHeight){infrastructureVolume = infrastructureArea * infrastructureHeight;}
+    else{infrastructureVolume = infrastructureArea * criticalFloodHeight;}
   const canalLength = 2604 * 1000;
   const canalVolume = canalLength * canalWidth * canalDepth;
   const canalWaterVolume = canalVolume * canalWaterFraction;
-  const waterVolume = (bangkokArea * expectedFloodHeight) - infrastructureVolume + canalWaterVolume;
+  const actualWaterVolume = (bangkokArea * criticalFloodHeight) - infrastructureVolume + canalWaterVolume;
 
   // Calculate hazard quotient
   var dailyWaterVolume = "";
     if (waterFlowRate < 2198.12){dailyWaterVolume = 0;}
-    else{dailyWaterVolume = (waterFlowRate - 2198.12) * 60 * 60 * 24;}
-  var hazardQuotient = (dailyWaterVolume * duration) / waterVolume;
+    else{dailyWaterVolume = (waterFlowRate - 2700.06) * 60 * 60 * 24;}
+  var hazardQuotient = (dailyWaterVolume * duration) / actualWaterVolume;
   var waterVolumePerDay = dailyWaterVolume / (duration*60*60*24);
   var DailyFloodWater = waterVolumePerDay.toLocaleString();
   document.getElementById("flow3day").innerHTML = DailyFloodWater + " m/s for " + duration + " consecutive days.";
 
   // Display results
-  document.getElementById("Vw").innerHTML = waterVolume.toLocaleString() + " m<sup>3</sup>";
+  document.getElementById("Vw").innerHTML = actualWaterVolume.toLocaleString() + " m<sup>3</sup>";
   document.getElementById("V").innerHTML = dailyWaterVolume.toLocaleString() + " m<sup>3</sup>/day.";
   document.getElementById("hq").innerHTML = hazardQuotient.toFixed(1);
   document.getElementById("head").innerHTML = "Discussion";
@@ -144,15 +146,15 @@ function flood() {
   if (hazardQuotient < 0.5) {
     // Low risk
     document.getElementById("hq").style.color = "green";
-    document.getElementById("dis").innerHTML = "Bangkok is at low risk of flooding. The actual water volume is less than what's needed to reach the " + expectedFloodHeight + " meters flood height.";
+    document.getElementById("dis").innerHTML = "Bangkok is at low risk of flooding. The actual water volume is less than what's needed to reach the " + criticalFloodHeight + " meters flood height.";
   } else if (hazardQuotient < 1) {
     // Moderate risk
     document.getElementById("hq").style.color = "yellow";
-    document.getElementById("dis").innerHTML = "Bangkok is at moderate risk of flooding. The actual water volume is less than what's needed to reach the " + expectedFloodHeight + " meters flood height.";
+    document.getElementById("dis").innerHTML = "Bangkok is at moderate risk of flooding. The actual water volume is less than what's needed to reach the " + criticalFloodHeight + " meters flood height.";
   } else {
     // High risk
     document.getElementById("hq").style.color = "red";
-    document.getElementById("dis").innerHTML = "Bangkok is at high risk of flooding. The actual water volume exceeds what's needed to reach the " + expectedFloodHeight + " meters flood height.";
+    document.getElementById("dis").innerHTML = "Bangkok is at high risk of flooding. The actual water volume exceeds what's needed to reach the " + criticalFloodHeight + " meters flood height.";
   }
 }
 </script>
@@ -179,12 +181,10 @@ function flood() {
 
 <h4>Reference</h4>
 <p class="ref">
-Kietpawpan, M. 2024. Flood Dynamics and Risk Assessment. Github Repository: <a href="https://github.com/Kietpawpan/flood
-">https://github.com/Kietpawpan/flood</a>
+Kietpawpan, M. 2024. Flood Dynamics and Risk Assessment. Github Repository: <a href="https://github.com/Kietpawpan/flood/blob/main/README.md">https://github.com/Kietpawpan/flood</a>
 </p>
 <br><br>
-<hr width="100px">
-
+<br>
 <p class="pn">- 2 -</p>
 </div>
 </p>
