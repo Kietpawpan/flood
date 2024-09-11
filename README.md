@@ -8,7 +8,7 @@ In urban areas, such as Bangkok, flooding often manifests as a sheet of water in
 
 |<img src="https://kietpawpan.github.io/flood/flood.jpg" width="300" height="300">
 |:--:| 
-| *Urban flooding model* |
+| *Urban flooding model*[^1]. |
 
 The thickness of the water layer, known as flood height (H), is calculated by dividing the volume of floodwater (V) by the city's area (A). However, this calculation can be adjusted to account for the volume of infrastructure submerged beneath the floodwater (Vi), which can partially displace the water.
 
@@ -78,8 +78,8 @@ Therefore, a smaller volume of floodwater is needed to produce the same flood he
 9. __Canal Space Fraction:__ The ratio of the empty volume within the canal to the total volume of the canal.
 
 ## Parameters Used
-1. Bangkok area is 1,568.7 km<sup>2</sup> [^1].
-2. The capacity of the drainage system in Bangkok is 2,198.12 m<sup>3</sup>/s.
+1. Bangkok area is 1,568.7 km<sup>2</sup> [^2].
+2. The capacity of the drainage system in Bangkok is 2,198.12 m<sup>3</sup>/s [^3].
    
 ## Risk Assessment
 The hazard quotient is a useful metric for quantifying flood risk. Here's a breakdown of the concept:
@@ -96,11 +96,12 @@ __Key Considerations__
 - x Meters: The chosen flood height is crucial. It should be based on historical data, local infrastructure, and the community's vulnerability to flooding.
 - Water Volume: Accurate estimation of both actual and potential water volumes is essential. This involves factors like rainfall intensity, catchment area, and drainage efficiency.
 - Flood Risk Mapping: Hazard quotients can be used to create flood risk maps, visually representing areas with different levels of vulnerability.
-## Reference
-[^1]: Wikipedia. 2024. Bangkok. https://en.wikipedia.org/wiki/Bangkok
+
 __Example:__
 If a region has an HQ of 0.8 for a flood height of 2 meters, it suggests that the current water volume is 80% of what's needed to cause a 2-meter flood. This indicates a relatively low risk.
 
+## Reference
+[^1]: Image by Gemini.
+[^2]: Wikipedia. 2024. Bangkok. https://en.wikipedia.org/wiki/Bangkok
+[^3]: Bangkok
 
-## Credits
-Figure was created with Gemini.
