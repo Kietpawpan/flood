@@ -65,7 +65,7 @@ function flood() {
 }
 ```
 Therefore, a smaller volume of floodwater is needed to produce the same flood height in areas with infrastructure that can displace water.
-## Variables and Parameters
+## Variables
 
 1. __Critical Flood Height:__ The maximum water level at which pedestrian or vehicular access becomes hazardous or impossible due to flooding.
 2. __Overflow Duration:__ The consecutive number of days during which the flood water level exceeds the capacity of the drainage system.
@@ -76,7 +76,11 @@ Therefore, a smaller volume of floodwater is needed to produce the same flood he
 7. __Canal Depth:__ The depth of the canal used to drain flood water from the city to the sea, measured in meters (m).
 8. __Actual Water Volume:__ The net volume of flood water in the city or region, calculated as the difference between the inflow and outflow rates over time. If the outflow rate exceeds the inflow rate, the actual water volume is zero.
 9. __Canal Space Fraction:__ The ratio of the empty volume within the canal to the total volume of the canal.
-    
+
+## Parameters Used
+1. Bangkok area is km<sup>2</sup>
+2. The capacity of the drainage system in Bangkok is m<sup>3</sup>/s.
+   
 ## Risk Assessment
 The hazard quotient is a useful metric for quantifying flood risk. Here's a breakdown of the concept:
 
