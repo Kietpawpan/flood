@@ -79,7 +79,7 @@ Therefore, a smaller volume of floodwater is needed to produce the same flood he
 
 ## Parameters Used
 1. Bangkok area is 1,568.7 km<sup>2</sup> [^2].
-2. The capacity of the drainage system in Bangkok is 2,198.12 m<sup>3</sup>/s [^3].
+2. The capacity of the drainage system in Bangkok in 2024 is 2,700.06 m<sup>3</sup>/s [^3].
    
 ## Risk Assessment
 The hazard quotient is a useful metric for quantifying flood risk. Here's a breakdown of the concept:
@@ -103,5 +103,5 @@ If a region has an HQ of 0.8 for a flood height of 2 meters, it suggests that th
 ## Reference
 [^1]: Image by Gemini.
 [^2]: Wikipedia. 2024. Bangkok. https://en.wikipedia.org/wiki/Bangkok
-[^3]: Bangkok Drainage and Sewerage Departemment. 2024. Flood Prevention Plan B.E. 2567 (in Thai). https://dds.bangkok.go.th/public_content/files/001/0008491_1.pdf
+[^3]: Bangkok Drainage and Sewerage Departemment. 2024. Flood Prevention Plan B.E. 2567 (in Thai). p. 2-9. https://dds.bangkok.go.th/public_content/files/001/0008491_1.pdf
 
