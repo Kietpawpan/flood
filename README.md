@@ -1,7 +1,7 @@
 # Flood Dynamics and Risk Assessment
 Bangkok remains vulnerable to flooding, and the risk is likely to increase in the future due to climate change. Therefore, ongoing efforts are needed to improve flood prevention and response capabilities. 
  
-This repository offers a [web application](https://kietpawpan.github.io/flood/flood.html) designed to evaluate flood risk in Bangkok under the worst-case scenario of seawater intrusion. The methodology and underlying concepts are detailed in this [paper](https://kietpawpan.github.io/flood/floodRisk.pdf).
+This repository offers a [web application](https://kietpawpan.github.io/flood/flood.html) designed to evaluate flood risk in Bangkok under the worst-case scenario of seawater intrusion. The methodology and underlying concepts are detailed in this [article](https://kietpawpan.github.io/flood/floodRisk.pdf).
 
 ## Theoretical Formulation
 In urban areas, such as Bangkok, flooding often manifests as a sheet of water inundating both land and infrastructure:         
